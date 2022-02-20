@@ -1,0 +1,1 @@
+G={PI,PA,T,L,S},{(PI,L),(PI,T),(PA,S),(PA,PI),(T,L),(T,PA),(L,PA),(L,S),(S,T),(S,PI)}
