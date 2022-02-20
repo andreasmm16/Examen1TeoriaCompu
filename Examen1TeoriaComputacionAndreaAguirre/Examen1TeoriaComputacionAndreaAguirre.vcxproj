@@ -147,6 +147,9 @@
     <ClInclude Include="metodosEjercicio1.h" />
     <ClInclude Include="metodosEjercicio2.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Examen1TeoriaComputacion_AndreaAguirre.docx" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

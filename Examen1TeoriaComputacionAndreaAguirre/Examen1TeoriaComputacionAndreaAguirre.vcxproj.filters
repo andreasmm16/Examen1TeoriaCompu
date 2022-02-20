@@ -33,4 +33,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Examen1TeoriaComputacion_AndreaAguirre.docx">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
