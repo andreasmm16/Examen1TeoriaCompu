@@ -10,8 +10,10 @@ public:
 	metodosEjercicio2();
 	~metodosEjercicio2();
 	void tablaJuego();
+	void cargarGrafo();
 	void juego();
-	vector<string> grafos;
+	vector<string> grafo;
 	string ing;
+	int** arr;
 };
 #endif 

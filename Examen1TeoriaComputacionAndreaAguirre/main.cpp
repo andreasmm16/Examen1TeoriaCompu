@@ -62,7 +62,7 @@ int main()
 					break;
 					
 				case 2:
-
+					mets2.juego();
 					break;
 
 				}
