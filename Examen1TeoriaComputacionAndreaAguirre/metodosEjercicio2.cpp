@@ -17,7 +17,7 @@ metodosEjercicio2::metodosEjercicio2() {
 }
 
 void metodosEjercicio2::tablaJuego() {
-	cout << "--TABLA DEL JUEGO \"PIEDRA PAPEL ¿SPOCK?--\""<<endl;
+	cout <<endl<< "--TABLA DEL JUEGO \"PIEDRA PAPEL ¿SPOCK?--\""<<endl;
 	cout << "Nombre de archivo con grafo de lógica de juego: GrafoJuego.txt\nGrafo en notación algebraica: ";
 	ifstream filee;
 	string grafotxt = "";
@@ -35,12 +35,95 @@ void metodosEjercicio2::tablaJuego() {
 	filee.close();
 	cout << endl;
 	cargarGrafo();
-
-	
-
 }
 
 void metodosEjercicio2::juego() {
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	string p1 = "", p2 = "",sino="";
+	int fila = 0, col = 0;
+	cout << "--JUGAR \"PIEDRA PAPEL ¿SPOCK?--\"\n¡Para salir en cualquier momento del juego escribe \"SALIR\"!\n";
+	cout << "Tabla de estructura del juego:" << endl;
+	cargarGrafo();
+	cout << endl;
+c:	cout << "\nTeclas para jugar : \nPiedra--> 1\nPapel--> 2 \nTijera--> 3\nLagartija--> 4\nSpock--> 5\n\n * --INICIO DE PARTIDA-- * \n";
+	
+a:	
+	SetConsoleTextAttribute(h, 1);
+	cout << "Jugador 1: ";
+	SetConsoleTextAttribute(h, 7);
+	int result = 0;
+	cin >> p1;
+	if (p1 == "SALIR") {
+		return;
+	}
+	if (p1 != "1" && p1 != "2" && p1 != "3" && p1 != "4" && p1 != "5" && p1 != "6") {
+		cout << "Opción no válida" << endl;
+		goto a;
+	}
+b:
+	SetConsoleTextAttribute(h, 3);
+	cout << "Jugador 2: ";
+	SetConsoleTextAttribute(h, 7);
+	cin >> p2;
+	if (p2 == "SALIR") {
+		return;
+	}
+	if (p2 != "1" && p2 != "2" && p2 != "3" && p2 != "4" && p2 != "5" && p2 != "6") {
+		cout << "Opción no válida" << endl;
+		goto b;
+	}
+	if (p1 == p2) {
+		SetConsoleTextAttribute(h, 6);
+		cout << "¡Es un empate! \n";
+		SetConsoleTextAttribute(h, 7);
+	f:	cout << "¿ Jugar partida nueva ? Ingresa Si o No:";
+		cin >> sino;
+		if (sino == "Si" || sino == "si" || sino == "SI") {
+			goto c;
+		}
+		else if (sino == "No" || sino == "no" || sino == "NO") {
+			return;
+		}
+		else if (sino != "No" || sino != "no" || sino != "NO" || sino != "Si" || sino != "si" || sino != "SI" || sino != "SALIR") {
+			cout << "\nIngresar solo 1 ó 2 ó SALIR" << endl;
+			goto f;
+		}
+	}
+	result = arr[stoi(p2) - 1][stoi(p1) - 1];
+	if (result == 1) {
+		SetConsoleTextAttribute(h, 1);
+		cout << "¡Jugador 1 es el ganador! \n";
+		SetConsoleTextAttribute(h, 7);
+	d:	cout << "¿ Jugar partida nueva? Ingresa Si o No:";
+		cin >> sino;
+		if (sino == "Si" || sino == "si" || sino == "SI") {
+			goto c;
+		}
+		else if (sino == "No" || sino == "no" || sino == "NO") {
+			return;
+		}
+		else if (sino != "No" || sino != "no" || sino != "NO" || sino != "Si" || sino != "si" || sino != "SI" || sino != "SALIR") {
+			cout << "\nIngresar solo 1 ó 2 ó SALIR" << endl;
+			goto d;
+		}
+	}
+	else if (result == 0) {
+		SetConsoleTextAttribute(h,3);
+		cout << "¡Jugador 2 es el ganador! \n";
+		SetConsoleTextAttribute(h, 7);
+	e:	cout << "¿ Jugar partida nueva ? Ingresa Si o No:";
+		cin >> sino;
+		if (sino == "Si" || sino == "si" || sino == "SI") {
+			goto c;
+		}
+		else if (sino == "No" || sino == "no" || sino == "NO") {
+			return;
+		}
+		else if (sino != "No" || sino != "no" || sino != "NO" || sino != "Si" || sino != "si" || sino != "SI" || sino != "SALIR") {
+			cout << "\nIngresar solo 1 ó 2 ó SALIR" << endl;
+			goto e;
+		}
+	}
 
 }
 
@@ -88,7 +171,7 @@ void metodosEjercicio2::cargarGrafo() {
 	//meter edges/aristas
 	for (int x = 17; x < grafotxt.size(); x++) {
 		if (grafotxt.at(x) != '}') {
-			if (grafotxt.at(x) != '(' & grafotxt.at(x) != ',' && grafotxt.at(x) != ')') {
+			if (grafotxt.at(x) != '(' && grafotxt.at(x) != ',' && grafotxt.at(x) != ')') {
 				tmpp += grafotxt.at(x);
 			}
 			else {

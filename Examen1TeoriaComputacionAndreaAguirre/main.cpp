@@ -12,8 +12,6 @@ int main()
 	setlocale(LC_ALL, "spanish");
 	metodosEjercicio1 mets1;
 	metodosEjercicio2 mets2;
-
-
 	do {
 	a:	cout << endl << "**--EXAMEN 1 TEORÍA DE COMPUTACIÓN--**" << endl << "1.Ejercicio 1\n2.Ejercicio 2\n3.Salir\n\nIngresar número de ejercicio:";
 		cin >> num2;
